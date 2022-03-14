@@ -3,7 +3,7 @@
 from ray.rllib.agents.callbacks import DefaultCallbacks 
 
 # For Tensorboard可视化
-class CRTransferCallback(DefaultCallbacks):
+class CRCallback(DefaultCallbacks):
     def on_episode_start(self, *, worker, base_env, policies, episode, env_index, **kwargs):
         self.total_damage = 0.0
 
