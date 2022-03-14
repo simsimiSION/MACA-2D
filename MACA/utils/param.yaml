@@ -1,0 +1,79 @@
+
+
+render: False
+render_setting: 
+    ally_cannon_path: "./MACA/render/resources/fighter-red-20.png"
+    ally_reconn_path: "./MACA/render/resources/fighter-red-20.png"
+    ally_missile_path: "./MACA/render/resources/detector-red-20.png"
+    enemy_cannon_path: "./MACA/render/resources/fighter-blue-20.png"
+    enemy_reconn_path: "./MACA/render/resources/fighter-blue-20.png"
+    enemy_missile_path: "./MACA/render/resources/detector-blue-20.png"
+
+    scale_val: 14
+
+    draw_reconn_detect_range: True
+    draw_fighter_detect_range: False
+    draw_damage_range: True
+    circle_width: 1
+
+env:
+    random_side: False
+    
+    n_ally_cannon: 5
+    n_ally_missile: 0
+    n_ally_reconn: 2
+    n_enemy_cannon: 5
+    n_enemy_missile: 0
+    n_enemy_reconn: 2
+
+simulator: 
+    # 仿真步长
+    dt: 0.05
+
+    # 地图大小
+    map_x_limit: 800 # 至少得大于500
+    map_y_limit: 500
+    random_limit: 50
+
+    # normalization
+    distance_normal_val: 200
+
+fighter:
+    # 通用信息
+    speed: 40
+    bloods: 100
+    turn_range: 0.26
+    attack_bias: 1.0 # [enemy specific] damage = original_damage * attack_bias
+
+    # 特有信息
+    cannon:
+        attack_precent: 1.0
+        detect_range: 70
+        damage: 10
+        damage_range: 50
+        damage_turn_range: 1.04
+    missile:
+        attack_precent: 0.5
+        detect_range: 70
+        damage: 100
+        damage_range: 150
+        damage_turn_range: 3.14
+    reconnaissance:
+        detect_range: 200
+        damage: 0
+        damage_range: 0
+        damage_turn_range: 0
+
+rl:
+    max_time_step: 600
+
+    reward:
+        reconn_detect: 0.02
+        cannon_attack: 1.0
+        time_penalty: -0.1 
+        win: 50
+        lose: -50
+        tier: -10
+
+    self_play:
+        win_rate_threshold: 0.6
