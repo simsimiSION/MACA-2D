@@ -191,6 +191,7 @@ class ReconnDetectAdjWrapper(CannonReconnHieraricalWrapper):
                     delta_theta += np.pi*2
                 if delta_theta > np.pi:
                     delta_theta -= np.pi*2
+                delta_theta += np.pi * np.random.uniform(-0.1, 0.1, size=(1))
                 delta_theta /= np.pi 
 
                 enemy_infos.extend([enemy_pos[0], enemy_pos[1], enemy_distance, delta_theta, 0.0, 0.0])
