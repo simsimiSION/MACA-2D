@@ -1,0 +1,88 @@
+Failure # 1 (occurred at 2023-04-21_19-03-36)
+Traceback (most recent call last):
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/tune/trial_runner.py", line 726, in _process_trial
+    result = self.trial_executor.fetch_result(trial)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/tune/ray_trial_executor.py", line 489, in fetch_result
+    result = ray.get(trial_future[0], timeout=DEFAULT_GET_TIMEOUT)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/worker.py", line 1452, in get
+    raise value.as_instanceof_cause()
+ray.exceptions.RayTaskError(ValueError): [36mray::PPO.train()[39m (pid=188780, ip=10.219.204.81)
+  File "python/ray/_raylet.pyx", line 482, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 436, in ray._raylet.execute_task.function_executor
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 517, in train
+    raise e
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/agents/trainer.py", line 506, in train
+    result = Trainable.train(self)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/tune/trainable.py", line 336, in train
+    result = self.step()
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/agents/trainer_template.py", line 147, in step
+    res = next(self.train_exec_impl)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 756, in __next__
+    return next(self.built_iterator)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 843, in apply_filter
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 843, in apply_filter
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 876, in apply_flatten
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 828, in add_wait_hooks
+    item = next(it)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 783, in apply_foreach
+    for item in it:
+  [Previous line repeated 1 more time]
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 471, in base_iterator
+    yield ray.get(futures, timeout=timeout)
+ray.exceptions.RayTaskError(ValueError): [36mray::RolloutWorker.par_iter_next()[39m (pid=188794, ip=10.219.204.81)
+  File "python/ray/_raylet.pyx", line 482, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 436, in ray._raylet.execute_task.function_executor
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/util/iter.py", line 1152, in par_iter_next
+    return next(self.local_it)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 317, in gen_rollouts
+    yield self.sample()
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/rollout_worker.py", line 621, in sample
+    batches = [self.input_reader.next()]
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/sampler.py", line 94, in next
+    batches = [self.get_data()]
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/sampler.py", line 211, in get_data
+    item = next(self.rollout_provider)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/sampler.py", line 564, in _env_runner
+    _process_observations_w_trajectory_view_api(
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/evaluation/sampler.py", line 1016, in _process_observations_w_trajectory_view_api
+    prep_obs: EnvObsType = _get_or_raise(preprocessors,
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/models/preprocessors.py", line 166, in transform
+    self.check_shape(observation)
+  File "/home/netease/anaconda3/envs/maca2/lib/python3.8/site-packages/ray/rllib/models/preprocessors.py", line 62, in check_shape
+    raise ValueError(
+ValueError: ('Observation ({}) outside given space ({})!', array([-0.75      , -0.33333333,  0.        ,  1.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ,  0.        ,
+        0.        ,  0.        ,  0.        ,  0.        ]), Box(-999.9, 999.9, (84,), float32))
+

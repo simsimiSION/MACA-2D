@@ -30,4 +30,4 @@ def get_args():
     file_data = f.read()
     f.close()
 
-    return dict2obj(yaml.load(file_data))
+    return dict2obj(yaml.load(file_data, Loader=yaml.FullLoader))

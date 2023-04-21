@@ -1,0 +1,32 @@
+{
+  "callbacks": "<class 'RL.callbacks.cr_callback.CRCallback'>",
+  "entropy_coeff": 0.0,
+  "env": "cr_env_hier",
+  "framework": "torch",
+  "lr": 1e-05,
+  "multiagent": {
+    "policies": {
+      "0": [
+        null,
+        "Box(-999.9, 999.9, (84,), float32)",
+        "Box(-0.26, 0.26, (1,), float32)",
+        {
+          "agent_id": 0
+        }
+      ],
+      "1": [
+        null,
+        "Box(-999.9, 999.9, (84,), float32)",
+        "Tuple(Box(-0.26, 0.26, (1,), float32), Dict('attack_target': Discrete(7), 'is_attack': Discrete(2)))",
+        {
+          "agent_id": 1
+        }
+      ]
+    },
+    "policy_mapping_fn": "<function main.<locals>.policy_mapping_fn at 0x7f028f769310>"
+  },
+  "num_gpus": 1.0,
+  "num_workers": 2,
+  "sgd_minibatch_size": 512,
+  "train_batch_size": 15000
+}

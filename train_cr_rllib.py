@@ -35,7 +35,7 @@ def main():
     
     # rllib config
     config = {
-        "env": "cr_env_hier_transfer",
+        "env": "cr_env_hier",
         "multiagent": {
             "policies": policies,
             "policy_mapping_fn": policy_mapping_fn,
@@ -45,7 +45,7 @@ def main():
         "sgd_minibatch_size": 512,
         "entropy_coeff": 0.0,
         "lr": 1e-5, #1e-5
-        "num_workers": 16,
+        "num_workers": 2,
         "num_gpus": 1.0,
         "callbacks": CRCallback,
     }

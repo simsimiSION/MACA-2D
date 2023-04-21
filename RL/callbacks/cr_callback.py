@@ -15,5 +15,4 @@ class CRCallback(DefaultCallbacks):
     def on_episode_end(self, *, worker, base_env, policies, episode, env_index, **kwargs):
         if episode.last_info_for('1') is not None:
             episode.custom_metrics['n_alive_enemy'] = episode.last_info_for('1')['n_alive_enemy']
-            episode.custom_metrics['delta_action'] = episode.last_info_for('1')['delta_action']
             episode.custom_metrics['total_damage'] = self.total_damage

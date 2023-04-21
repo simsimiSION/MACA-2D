@@ -9,8 +9,7 @@ MACA-2D is a multi-agent air combat secnario, based on [MACA](https://github.com
 #### Install
 
 ```shell
-pip install ray
-pip install ray[rllib]
+pip install -r requirements.txt
 ```
 
 #### Train & Test

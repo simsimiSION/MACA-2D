@@ -1,6 +1,7 @@
 
 import gym
 from gym.spaces import Dict, Discrete, Box, Tuple
+import numpy as np
 
 from ray.rllib.env.multi_agent_env import MultiAgentEnv
 
@@ -49,8 +50,8 @@ class CannonReconnHieraricalEnv(MultiAgentEnv):
 
         # RL wrapper
         self.observation_spaces = [
-            Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,)),
-            Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,))
+            Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,), dtype=np.float),
+            Box(low=-999.9, high=999.9, shape=(6+(self.n_ally+self.n_enemy-1)*6,), dtype=np.float)
         ]
         self.action_spaces = [
             Box(low=-self.args.fighter.turn_range, 
